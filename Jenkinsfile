@@ -4,8 +4,8 @@ pipeline {
   environment {
         AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
         AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
-        IMAGE_NAME = 'turtleracemiddle'
-        REGISTRY = 'http://884956725745.dkr.ecr.us-east-1.amazonaws.com/kzn-rnd-hadr'
+        IMAGE_NAME = "turtleracemiddle"
+        REGISTRY = "http://884956725745.dkr.ecr.us-east-1.amazonaws.com/kzn-rnd-hadr"
   }
   stages {
     stage('build app') {
@@ -23,7 +23,7 @@ pipeline {
     stage('build image') {
       // Build docker image and run test
       steps {
-        sh 'docker build -t ${IMAGE_NAME}:${env.BUILD_ID} .'
+        sh "docker build -t ${IMAGE_NAME}:${env.BUILD_ID} ."
       }
     }
     stage('run image') {
