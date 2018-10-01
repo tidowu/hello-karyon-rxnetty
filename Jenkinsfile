@@ -28,7 +28,7 @@ pipeline {
     }
     stage('run image') {
       steps {
-        sh "docker run -ti ${IMAGE_NAME}:${env.BUILD_ID} --name ${IMAGE_NAME} -port 8080:8080"
+        sh "docker run ${IMAGE_NAME}:${env.BUILD_ID} --name ${IMAGE_NAME} -port 8080:8080"
         sh "docker ps | grep ${IMAGE_NAME}"
       }
     }
